@@ -51,12 +51,20 @@ public class EntityClassGen {
 
                                         )))
                 .withDatabase(new Database()
-                        .withName("org.jooq.meta.extensions.ddl.DDLDatabase")
+                        .withName("org.jooq.meta.mysql.MySQLDatabase")
                         .withProperties(new Property().
                                 withKey("scripts").
-                                withValue(scriptPath)
-                        )
+                                withValue(scriptPath),
+
+                                new Property()
+                                    .withKey("sort")
+                                        .withValue("semantic"),
+
+                                new Property()
+                                    .withKey("unqualifiedSchema")
+                                        .withValue("none")
                 )
+                        )
                 .withGenerate(new Generate()
                         .withPojos(true)
                         .withDaos(true)

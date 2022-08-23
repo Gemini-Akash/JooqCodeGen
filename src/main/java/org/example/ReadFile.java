@@ -3,6 +3,7 @@ package org.example;
 import org.jooq.exception.IOException;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.nio.file.Path;
@@ -12,8 +13,7 @@ import java.util.Scanner;
 public class ReadFile {
     public  void readFile() throws IOException,  java.io.IOException {
 
-        File file = new File("src/main/resources/Script.sql");
-        Scanner input = new Scanner(file);
+
 
 
         Path path1 = Paths.get("D:\\JooqCodeGen\\src\\main\\resources");
@@ -22,21 +22,35 @@ public class ReadFile {
 
         FileWriter fileWriter =new FileWriter(path);
 
+        try
+        {
 
+            FileInputStream fis=new FileInputStream("src/main/resources/Script.sql");
+            Scanner sc=new Scanner(fis);
 
-        int count = 0;
-        while (input.hasNext()) {
-            String word= input.next();
-            String text= word.replaceAll("[\\[\\]]", "");
-            fileWriter.write(text);
-            fileWriter.write(" ");
-            count = count + 1;
+            while(sc.hasNextLine())
+            {
+                String line = sc.nextLine();
+                String text = removeSquare(line);
+                fileWriter.write(text);
+                fileWriter.write(System.lineSeparator());
+            }
+            sc.close();     //closes the scanner
         }
-        System.out.println(count);
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
         fileWriter.close();
 
     }
 
+    private String removeSquare(String line) {
+        String str =line.replaceAll("[\\[\\]]", "");
+        return str;
     }
+
+}
 
 
