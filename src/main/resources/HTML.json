@@ -1,0 +1,36 @@
+{
+  "classes": [
+    {
+    "className": "student",
+    "variable": [{
+      "fieldName": "name",
+      "datatype": [{
+        "datatype": "String"
+      }]
+    },
+      {
+        "fieldName": "id",
+        "datatype": [{
+          "datatype": "String"
+        }]
+      }
+    ]
+  },
+    {
+      "className": "book",
+      "variable": [{
+        "fieldName": "name",
+        "datatype": [{
+          "datatype": "String"
+        }]
+      },
+        {
+          "fieldName": "price",
+          "datatype": [{
+            "datatype": "Float"
+          }]
+        }
+      ]
+    }
+  ]
+}
