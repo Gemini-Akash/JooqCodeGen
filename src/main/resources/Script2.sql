@@ -1,31 +1,29 @@
 GO
-/****** Object:  Table dbo.acc_monitor_log    Script Date: 3/24/2022 4:40:30 PM ******/
+/****** Object:  Table [dbo].[AllocationTypeMaster]    Script Date: 3/24/2022 4:40:30 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE dbo.acc_monitor_log(
-	id int NOT NULL,
-	create_time datetime NULL,
-	status smallint NOT NULL ,
-	t datetime NULL,
-	pin nvarchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	card_no nvarchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	device_id int NULL,
-	device_sn nvarchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	device_name nvarchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	verified int NULL ,
-	state int NULL,
-	state_name nvarchar(30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	event_type smallint NULL,
-	trigger_opt smallint NULL ,
-	event_point_type smallint NULL ,
-	event_point_id int NULL,
-	event_point_name nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_A NULL,
-	description nvarchar(max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	firstname nvarchar(24) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	lastname nvarchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	dept nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-	area nvarchar(30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-)
+SET ANSI_PADDING ON
+GO
+CREATE TABLE language (
+  id              NUMBER(7)     NOT NULL PRIMARY KEY,
+  cd              CHAR(2)       NOT NULL,
+  description     VARCHAR2(50)
+);
 
+CREATE TABLE [AllocationTypeMaster](
+	[AllocationTypeId] [int] NOT NULL,
+	[AllocationTypeName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[SequenceNo] [int] NOT NULL,
+	[IsActive] [bit] NOT NULL ,
+	[CreatedBy] [int] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[ModifiedBy] [int] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[language_id] [int] NOT NULL,
+	PRIMARY KEY CLUSTERED (
+	[AllocationTypeId] ASC
+	),
+	CONSTRAINT fk_book_language   FOREIGN KEY ([language_id]) REFERENCES language(id)
+)

@@ -14,9 +14,10 @@ public class Main {
 //        ReadFile obj =new ReadFile();
 //        obj.readFile();
 //
-        EntityClassGen entityClassGen = new EntityClassGen();
-        EntityClassGen.EntityGenerator("src/main/resources/Script2.sql","Entity.Generated","D:\\JooqCodeGen\\src\\main\\java");
-
+//        EntityClassGen entityClassGen = new EntityClassGen();
+//        EntityClassGen.EntityGenerator("src/main/resources/Script2.sql","Entity.Generated","D:\\JooqCodeGen\\src\\main\\java");
+//        GenerateApiSpring obj =new GenerateApiSpring();
+//        obj.executeCmd();
 
 
     }

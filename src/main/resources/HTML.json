@@ -2,17 +2,14 @@
   "classes": [
     {
     "className": "student",
-    "variable": [{
-      "fieldName": "name",
-      "datatype": [{
-        "datatype": "String"
-      }]
-    },
+    "variable": [
       {
-        "fieldName": "id",
-        "datatype": [{
-          "datatype": "String"
-        }]
+      "fieldName": "name",
+      "datatype": "String"
+      },
+      {
+        "fieldName": "Id",
+        "datatype": "int"
       }
     ]
   },
